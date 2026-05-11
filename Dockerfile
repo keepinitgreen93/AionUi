@@ -32,8 +32,8 @@ ENV NODE_ENV=production
 ENV ALLOW_REMOTE=true
 ENV DATA_DIR=/data
 
-# SQLite data volume — mount with: -v $(pwd)/data:/data
-VOLUME ["/data"]
+# SQLite data volume — attach a Railway Volume mounted at /data
+RUN mkdir -p /data
 EXPOSE 3000
 
 CMD ["bun", "dist-server/server.mjs"]
